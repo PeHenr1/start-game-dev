@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2dabc5bee6cd5488fc9e70a16cac55, type: 3}
+  m_Name: NPC_1
+  m_EditorClassIdentifier: 
+  actor: {fileID: 7047108764575497781, guid: 7c69bd5bc0cf1994e92fb0066957ff9f, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: Lucas
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Ol\xE1, forasteiro! Qual \xE9 o seu nome? Tudo bem com voc\xEA?"
+      english: 'Hello, outsider! What is your name? How are you? '
+      spanish: "\xA1Hola,  forastero! \xBFCu\xE1l es tu nombre? \xBFC\xF3mo est\xE1s?"
+  - actorName: Hero
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Ol\xE1! Meu nome \xE9 ..."
+      english: Hi! I'm ...
+      spanish: "\xA1Hola! Me llamo  ..."
+  - actorName: Lucas
+    profile: {fileID: 0}
+    sentence:
+      portuguese: 'Oh... Que belo nome! '
+      english: Oh... What a beautiful name!
+      spanish: "Oh... \xA1Qu\xE9 hermoso nombre!"
+  - actorName: Hero
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Obrigado... Voc\xEA poderia me ajudar?"
+      english: Thanks... Could you help me?
+      spanish: "Gracias... \xBFPodr\xEDas ayudarme?"
+  - actorName: Lucas
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Claro! O que voc\xEA precisa?"
+      english: Sure! What do you need?
+      spanish: "\xA1Claro! \xBFQu\xE9 necesitas?"
