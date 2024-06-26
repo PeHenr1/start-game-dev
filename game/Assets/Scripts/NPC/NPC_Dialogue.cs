@@ -12,24 +12,31 @@ public class NPC_Dialogue : MonoBehaviour
 
     bool playerHit;
     private List<string> sentences = new List<string>();
-    
+
+    private Player player;
+    private NPC npc;
+
 
     private void Start()
     {
+        player = GameObject.FindObjectOfType<Player>();
+        npc = GetComponent<NPC>();
         GetNPCInfo();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T) && playerHit)
+        if (Input.GetKeyDown(KeyCode.T) && playerHit)
         {
+            CheckPlayerDirection();
             DialogueControl.instance.Speech(sentences.ToArray());
         }
     }
 
     void GetNPCInfo()
     {
-        for(int i = 0; i < dialogue.dialogues.Count; i++) {
+        for (int i = 0; i < dialogue.dialogues.Count; i++)
+        {
             switch (DialogueControl.instance.language)
             {
                 case DialogueControl.idiom.pt:
@@ -44,7 +51,7 @@ public class NPC_Dialogue : MonoBehaviour
                     sentences.Add(dialogue.dialogues[i].sentence.spanish);
                     break;
             }
-            
+
         }
     }
 
@@ -54,13 +61,13 @@ public class NPC_Dialogue : MonoBehaviour
         ShowDialogue();
     }
 
-    void ShowDialogue() 
+    void ShowDialogue()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, dialogueRange, playerLayer);
 
-        if(hit != null)
+        if (hit != null)
         {
-            playerHit = true;   
+            playerHit = true;
         }
         else
         {
@@ -72,6 +79,24 @@ public class NPC_Dialogue : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, dialogueRange);
+    }
+
+    // ESSA PORRA ALTERA CERTO, MAS NAO MANTEM!!!!
+    public void CheckPlayerDirection()
+    {
+
+        Vector2 playerDirection = player.transform.position - transform.position;
+        Vector2 npcDirection = npc.currentDirection;
+
+        if (playerDirection.x > 0)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+        }
+        else if (playerDirection.x < 0)
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+            
+        }
     }
 
 }

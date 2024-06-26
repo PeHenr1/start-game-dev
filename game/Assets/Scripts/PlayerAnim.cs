@@ -9,6 +9,8 @@ public class PlayerAnim : MonoBehaviour
     private Player player;
     private Animator anim;
 
+    private bool facingPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,20 +38,32 @@ public class PlayerAnim : MonoBehaviour
             else
             {
                 anim.SetInteger("transition", 1);
-            }  
+            }
+
+            // Atualiza a direção que o jogador está olhando
+            if (player.direction.x > 0)
+            {
+                facingPosition = true;
+                transform.eulerAngles = new Vector2(0, 0);
+            }
+            else if (player.direction.x < 0)
+            {
+                facingPosition = false;
+                transform.eulerAngles = new Vector2(0, 180);
+            }
         }
         else
         {
             anim.SetInteger("transition", 0);
-        }
-
-        if (player.direction.x > 0)
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector2(0, 180);
+            // Mantém a direção anterior quando parado
+            if (facingPosition)
+            {
+                transform.eulerAngles = new Vector2(0, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector2(0, 180);
+            }
         }
     }
 
