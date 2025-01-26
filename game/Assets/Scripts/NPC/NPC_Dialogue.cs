@@ -82,6 +82,7 @@ public class NPC_Dialogue : MonoBehaviour
     }
 
     // ESSA PORRA ALTERA CERTO, MAS NAO MANTEM!!!!
+    // logica para mudar o lado do npc na direção do player, corrigir
     public void CheckPlayerDirection()
     {
 
